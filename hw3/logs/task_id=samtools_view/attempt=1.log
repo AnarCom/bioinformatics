@@ -1,0 +1,17 @@
+[2023-05-23T15:26:20.861+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bio_pipeline.samtools_view manual__2023-05-23T15:25:52.201597+00:00 [queued]>
+[2023-05-23T15:26:20.870+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bio_pipeline.samtools_view manual__2023-05-23T15:25:52.201597+00:00 [queued]>
+[2023-05-23T15:26:20.870+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-23T15:26:20.893+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): samtools_view> on 2023-05-23 15:25:52.201597+00:00
+[2023-05-23T15:26:20.896+0000] {standard_task_runner.py:57} INFO - Started process 115 to run task
+[2023-05-23T15:26:20.900+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'bio_pipeline', 'samtools_view', 'manual__2023-05-23T15:25:52.201597+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmptdirb67t']
+[2023-05-23T15:26:20.901+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask samtools_view
+[2023-05-23T15:26:20.952+0000] {task_command.py:410} INFO - Running <TaskInstance: bio_pipeline.samtools_view manual__2023-05-23T15:25:52.201597+00:00 [running]> on host 499b68c3ade1
+[2023-05-23T15:26:21.315+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bio_pipeline' AIRFLOW_CTX_TASK_ID='samtools_view' AIRFLOW_CTX_EXECUTION_DATE='2023-05-23T15:25:52.201597+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-23T15:25:52.201597+00:00'
+[2023-05-23T15:26:21.317+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-23T15:26:21.318+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', "samtools view --threads $(nproc) -b '/host/ecoli_out'/result.sam > '/host/ecoli_out'/result.bam"]
+[2023-05-23T15:26:21.326+0000] {subprocess.py:86} INFO - Output:
+[2023-05-23T15:26:22.323+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-23T15:26:22.362+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=bio_pipeline, task_id=samtools_view, execution_date=20230523T152552, start_date=20230523T152620, end_date=20230523T152622
+[2023-05-23T15:26:22.408+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-23T15:26:22.460+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

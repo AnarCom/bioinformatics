@@ -1,0 +1,18 @@
+[2023-05-23T15:26:26.271+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bio_pipeline.get_quality manual__2023-05-23T15:25:52.201597+00:00 [queued]>
+[2023-05-23T15:26:26.282+0000] {taskinstance.py:1103} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bio_pipeline.get_quality manual__2023-05-23T15:25:52.201597+00:00 [queued]>
+[2023-05-23T15:26:26.283+0000] {taskinstance.py:1308} INFO - Starting attempt 1 of 1
+[2023-05-23T15:26:26.308+0000] {taskinstance.py:1327} INFO - Executing <Task(BashOperator): get_quality> on 2023-05-23 15:25:52.201597+00:00
+[2023-05-23T15:26:26.311+0000] {standard_task_runner.py:57} INFO - Started process 133 to run task
+[2023-05-23T15:26:26.314+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'bio_pipeline', 'get_quality', 'manual__2023-05-23T15:25:52.201597+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpo4_nmer1']
+[2023-05-23T15:26:26.315+0000] {standard_task_runner.py:85} INFO - Job 7: Subtask get_quality
+[2023-05-23T15:26:26.368+0000] {task_command.py:410} INFO - Running <TaskInstance: bio_pipeline.get_quality manual__2023-05-23T15:25:52.201597+00:00 [running]> on host 499b68c3ade1
+[2023-05-23T15:26:26.758+0000] {taskinstance.py:1547} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='bio_pipeline' AIRFLOW_CTX_TASK_ID='get_quality' AIRFLOW_CTX_EXECUTION_DATE='2023-05-23T15:25:52.201597+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-05-23T15:25:52.201597+00:00'
+[2023-05-23T15:26:26.759+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2023-05-23T15:26:26.759+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'samtools flagstat --threads $(nproc) \'/host/ecoli_out\'/result.bam | python3 -c \'from sys import stdin; d=stdin.read(); import re; print(re.findall(r"\\d+\\s+\\+\\s+\\d+\\s+mapped\\s+\\((\\d+\\.\\d+)%", d)[0])\'']
+[2023-05-23T15:26:26.770+0000] {subprocess.py:86} INFO - Output:
+[2023-05-23T15:26:26.927+0000] {subprocess.py:93} INFO - 95.40
+[2023-05-23T15:26:26.931+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2023-05-23T15:26:26.954+0000] {taskinstance.py:1350} INFO - Marking task as SUCCESS. dag_id=bio_pipeline, task_id=get_quality, execution_date=20230523T152552, start_date=20230523T152626, end_date=20230523T152626
+[2023-05-23T15:26:27.006+0000] {local_task_job_runner.py:225} INFO - Task exited with return code 0
+[2023-05-23T15:26:27.042+0000] {taskinstance.py:2651} INFO - 1 downstream tasks scheduled from follow-on schedule check

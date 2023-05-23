@@ -14,8 +14,8 @@ with DAG(
     schedule=None,
     catchup=False,
     params={
-        "ref_path": Param('/host/ecoli/ref/GCF_000005845.2_ASM584v2_genomic.fna', type='string'),
-        "fasta_path": Param('/host/ecoli/wgs_5/SRR24457391.fastq.gz', type='string'),
+        "ref_path": Param('/host/et_ecoli.fna', type='string'),
+        "fasta_path": Param('/host/SRR24502286.fasta', type='string'),
         "out_path": Param('/host/ecoli_out', type='string'),
     }
 ):  
@@ -24,11 +24,11 @@ with DAG(
         bash_command="mkdir -p '{{ params.out_path }}' && find '{{ params.out_path }}' -mindepth 1 -delete"
     )
     run_fastqc = BashOperator(
-        bash_command="fastqc -o '{{ params.out_path }}' -t $(nproc) '{{ params.fasta_path }}'",
+        bash_command="echo 'hello'",
         task_id="run_fastqc"
     )
     run_bwa = BashOperator(
-        bash_command="bwa mem -t $(nproc) '{{ params.ref_path }}' '{{ params.fasta_path }}' > '{{ params.out_path }}'/result.sam",
+        bash_command="minimap2 -a -t $(nproc) '{{ params.ref_path }}' '{{ params.ref_path }}' '{{ params.fasta_path }}' > '{{ params.out_path }}/result.sam'",
         task_id="bwa_id"
     )
     run_samtools_view = BashOperator(
